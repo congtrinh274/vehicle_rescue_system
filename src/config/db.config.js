@@ -6,7 +6,7 @@ const sequelize = new Sequelize(
   "Cong27042002",
   {
     host: "127.0.0.1",
-    dialect: "mysql2",
+    dialect: "mysql",
   }
 );
 
