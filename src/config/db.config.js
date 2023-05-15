@@ -1,4 +1,5 @@
 const Sequelize = require("sequelize");
+const mysql2 = require("mysql2")
 
 const sequelize = new Sequelize(
   "vehicle_rescue_system_db",
