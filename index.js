@@ -1,6 +1,4 @@
 const express = require('express');
-
-
 const route = require("./src/routes");
 
 

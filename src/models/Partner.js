@@ -1,21 +1,13 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/db.config');
 
-const Customer = sequelize.define('Customer', {
-  idNguoiDung: {
+const Partner = sequelize.define('Partner', {
+  idDoiTac: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  tenNguoiDung: {
-    type: DataTypes.STRING(255),
-    allowNull: false,
-  },
-  matKhau: {
-    type: DataTypes.STRING(255),
-    allowNull: false,
-  },
-  email: {
+  ten: {
     type: DataTypes.STRING(255),
     allowNull: false,
   },
@@ -23,20 +15,25 @@ const Customer = sequelize.define('Customer', {
     type: DataTypes.STRING(11),
     allowNull: false,
   },
-  diaChi: {
+  diaChiCoSo: {
     type: DataTypes.STRING(255),
+    allowNull: false,
+  },
+  kinhDo: {
+    type: DataTypes.FLOAT,
     allowNull: true,
   },
-  anhDaiDien: {
-    type: DataTypes.STRING(255),
+  viDo: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
   },
-  thoiDiemTaoTK: {
+  thoiDiemDangKyDoiTac: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
   },
 }, {
-  tableName: 'nguoidung',
-  timestamps: false, 
+  tableName: 'doitac',
+  timestamps: false,
 });
 
-module.exports = Customer;
+module.exports = Partner;
