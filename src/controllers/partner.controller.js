@@ -1,5 +1,4 @@
 const Partner = require("../models/Partner");
-const sequelize = require("../../config/db.config");
 
 class PartnerController {
   // [GET] /partner/show

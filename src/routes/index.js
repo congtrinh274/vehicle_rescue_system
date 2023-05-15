@@ -1,10 +1,10 @@
 const customerRouter = require("./customer.routes");
-const partnerController = require("./partner.routes");
+const partnerRouter = require("./partner.routes");
 
 function route(app) {
     
   app.use("/customer", customerRouter);
-  app.use("/partner", partnerController)
+  app.use("/partner", partnerRouter)
 
 }
 
