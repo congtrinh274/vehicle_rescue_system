@@ -62,7 +62,7 @@ class CustomerController {
 
       // Find Customer
       if (!customer) {
-        return res.status(404).json({ message: 'Email not found' });
+        return res.status(404).json({ message: 'Phone not found' });
       }
 
       // Check password
