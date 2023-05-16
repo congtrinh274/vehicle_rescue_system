@@ -1,5 +1,4 @@
 const Sequelize = require("sequelize");
-const mysql2 = require("mysql2")
 
 const sequelize = new Sequelize(
   "vehicle_rescue_system_db",
@@ -8,6 +7,7 @@ const sequelize = new Sequelize(
   {
     host: "dpg-chhfl1d269v0od585is0-a.singapore-postgres.render.com",
     dialect: "postgres",
+    dialectModule: require('pg'),
     dialectOptions: {
       ssl: true,
     },
