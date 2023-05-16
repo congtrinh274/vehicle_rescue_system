@@ -51,6 +51,59 @@ class CustomerController {
       res.status(500).json({ message: 'Internal server error' });
     }
   }
+
+  // [POST] /customer/login-with-phone-number
+  async loginWithPhoneNum(req, res) {
+    try {
+      const { soDienThoai, matKhau } = req.body;
+      console.log( soDienThoai, matKhau)
+
+      const customer = await Customer.findOne({ where: { soDienThoai } });
+
+      // Find Customer
+      if (!customer) {
+        return res.status(404).json({ message: 'Email not found' });
+      }
+
+      // Check password
+      console.log(customer.matKhau)
+      const isPasswordValid = (matKhau === customer.matKhau)
+      if (!isPasswordValid) {
+        return res.status(401).json({ message: 'Invalid password' });
+      }
+
+      return res.status(200).json({ message: 'Login successful' }); // Đăng nhập thành công
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  }
+
+  // [POST] /customer/login-with-email
+  async loginWithEmail(req, res) {
+    try {
+      const { email, matKhau } = req.body;
+
+      const customer = await Customer.findOne({ where: { email } });
+
+      // Find Customer
+      if (!customer) {
+        return res.status(404).json({ message: 'Email not found' });
+      }
+
+      // Check password
+      const isPasswordValid = (matKhau === customer.matKhau)
+      if (!isPasswordValid) {
+        return res.status(401).json({ message: 'Invalid password' });
+      }
+
+      return res.status(200).json({ message: 'Login successful' }); // Đăng nhập thành công
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  }
+
 }
 
 module.exports = new CustomerController();

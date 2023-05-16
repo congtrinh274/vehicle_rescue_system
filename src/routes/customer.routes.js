@@ -7,6 +7,8 @@ const customerController = require('../controllers/customer.controller');
 router.get('/show', customerController.show);
 router.get('/:id', customerController.getById)
 router.post('/create', customerController.create)
+router.post('/login-with-phone-number', customerController.loginWithPhoneNum)
+router.post('/login-with-email', customerController.loginWithEmail)
 
 module.exports = router
     
