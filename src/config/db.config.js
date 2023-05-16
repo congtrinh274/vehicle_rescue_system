@@ -3,12 +3,14 @@ const mysql2 = require("mysql2")
 
 const sequelize = new Sequelize(
   "vehicle_rescue_system_db",
-  "root",
-  "Cong27042002",
+  "vehicle_rescue_system_db_user",
+  "Nuw6KLsZEHGERsCLOU6uLVmfv0Szm2kY",
   {
-    host: "127.0.0.1",
-    dialect: "mysql",
-    dialectModule: mysql2,
+    host: "dpg-chhfl1d269v0od585is0-a.singapore-postgres.render.com",
+    dialect: "postgres",
+    dialectOptions: {
+      ssl: true,
+    },
   }
 );
 
