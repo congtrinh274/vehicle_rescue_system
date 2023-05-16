@@ -4,8 +4,8 @@ class CustomerController {
   // [GET] /customer/show
   async show(req, res) {
     try {
-      const user = await Customer.findAll();
-      res.json(user); 
+      const users = await Customer.findAll();
+      res.json(users);
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Internal server error' });
@@ -16,14 +16,14 @@ class CustomerController {
   async getById(req, res) {
     try {
       const { id } = req.params;
-  
+
       // Tìm người dùng theo id
       const customer = await Customer.findByPk(id);
-  
+
       if (!customer) {
-        return res.status(404).json({ message: 'Customer isn\'t found' });
+        return res.status(404).json({ message: 'Customer not found' });
       }
-  
+
       return res.status(200).json(customer);
     } catch (error) {
       console.error(error);
@@ -51,7 +51,6 @@ class CustomerController {
       res.status(500).json({ message: 'Internal server error' });
     }
   }
-  
 }
 
-module.exports = new CustomerController
+module.exports = new CustomerController();

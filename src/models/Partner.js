@@ -1,39 +1,44 @@
-const { DataTypes } = require('sequelize');
+"use strict";
+const { Sequelize, DataTypes, Model } = require('sequelize');
 const sequelize = require('../config/db.config');
 
-const Partner = sequelize.define('Partner', {
-  idDoiTac: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+class Partner extends Model {
+  static associate(models) {
+    // define association here
+  }
+}
+
+Partner.init(
+  {
+    idDoiTac: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    ten: {
+      type: DataTypes.STRING(255),
+    },
+    soDienThoai: {
+      type: DataTypes.STRING(11),
+    },
+    diaChiCoSo: {
+      type: DataTypes.STRING(255),
+    },
+    kinhDo: {
+      type: DataTypes.FLOAT,
+    },
+    viDo: {
+      type: DataTypes.FLOAT,
+    },
   },
-  ten: {
-    type: DataTypes.STRING(255),
-    allowNull: false,
-  },
-  soDienThoai: {
-    type: DataTypes.STRING(11),
-    allowNull: false,
-  },
-  diaChiCoSo: {
-    type: DataTypes.STRING(255),
-    allowNull: false,
-  },
-  kinhDo: {
-    type: DataTypes.FLOAT,
-    allowNull: true,
-  },
-  viDo: {
-    type: DataTypes.FLOAT,
-    allowNull: true,
-  },
-  thoiDiemDangKyDoiTac: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-}, {
-  tableName: 'doitac',
-  timestamps: false,
-});
+  {
+    sequelize,
+    modelName: "Partner",
+    tableName: "partner",
+    timestamps: true,
+    collate: "utf8_unicode_ci",
+  }
+);
+
 
 module.exports = Partner;
