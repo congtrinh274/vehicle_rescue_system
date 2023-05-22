@@ -37,6 +37,7 @@ Request.init(
     },
     trangThai: {
       type: DataTypes.ENUM('Chờ xử lý', 'Đã nhận yêu cầu', 'Đang đến hiện trường', 'Đã giải quyết', 'Từ chối yêu cầu'),
+      defaultValue: 'Chờ xử lý',
     },
   },
   {
