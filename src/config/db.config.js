@@ -1,11 +1,11 @@
 const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(
-  "vehicle_rescue_system_db",
-  "vehicle_rescue_system_db_user",
-  "Nuw6KLsZEHGERsCLOU6uLVmfv0Szm2kY",
+  "f7_move_db",
+  "f7_move_db_user",
+  "NVLnEjSqhkT28RiGp29gbbBznpVstDvq",
   {
-    host: "dpg-chhfl1d269v0od585is0-a.singapore-postgres.render.com",
+    host: "dpg-ck8ps1vq54js73d4u6pg-a.oregon-postgres.render.com",
     dialect: "postgres",
     dialectModule: require('pg'),
     dialectOptions: {
